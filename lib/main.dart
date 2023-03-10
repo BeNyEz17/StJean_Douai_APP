@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stjean_douai_app/page_accueil.dart';
+import 'package:stjean_douai_app/page_entrer.dart';
 
-const d_black = const Color(0x8A000000);
+const d_color = const Color(0xFF03A9F4);
 
 void main() {
   runApp(const MyApp());
