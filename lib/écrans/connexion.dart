@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stjean_douai_app/delayed_animation.dart';
+import 'package:stjean_douai_app/components/delayed_animation.dart';
 import 'package:stjean_douai_app/main.dart';
+import 'package:stjean_douai_app/%C3%A9crans/page_accueil.dart';
 
 class PageConnexion extends StatelessWidget {
   @override
@@ -97,7 +98,12 @@ class PageConnexion extends StatelessWidget {
                 padding: EdgeInsets.only(right: 35),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PageAccueil(),
+                      ),
+                    );
                   },
                   child: DelayedAnimation(
                     delay: 3000,
