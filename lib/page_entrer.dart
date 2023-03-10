@@ -34,7 +34,7 @@ class PageAccueil extends StatelessWidget {
                   child: Container(
                     height: 50,
                     margin: EdgeInsets.only(),
-                    child: Text("Pour plus sur ST Jean clique sur le bouton",
+                    child: Text("Pour en savoir plus sur ST Jean clique sur le bouton",
                         textAlign: TextAlign.center,
                         style: GoogleFonts.poppins(
                           color: Colors.grey,
@@ -45,6 +45,7 @@ class PageAccueil extends StatelessWidget {
                 DelayedAnimation(
                   delay: 3500,
                   child: Container(
+                    margin: const EdgeInsets.only(top: 20.0),
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
