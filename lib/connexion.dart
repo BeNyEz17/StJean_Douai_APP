@@ -33,7 +33,7 @@ class PageConnexion extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   DelayedAnimation(
-                    delay: 1500,
+                    delay: 500,
                     child: Text(
                       "Connexion",
                       style: GoogleFonts.poppins(
@@ -45,7 +45,7 @@ class PageConnexion extends StatelessWidget {
                   ),
                   SizedBox(height: 15),
                   DelayedAnimation(
-                    delay: 2500,
+                    delay: 1000,
                     child: Text(
                       "veuillez vous connecter avec vos informations",
                       style: GoogleFonts.poppins(
@@ -62,7 +62,7 @@ class PageConnexion extends StatelessWidget {
             ConnexionForm(),
             SizedBox(height: 90),
             DelayedAnimation(
-              delay: 5500,
+              delay: 2500,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: StadiumBorder(),
@@ -100,7 +100,7 @@ class PageConnexion extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   child: DelayedAnimation(
-                    delay: 6500,
+                    delay: 3000,
                     child: Text(
                       "PASSER",
                       style: GoogleFonts.poppins(
@@ -138,7 +138,7 @@ class _ConnexionFormState extends State<ConnexionForm> {
       child: Column(
         children: [
           DelayedAnimation(
-            delay: 3500,
+            delay: 1500,
             child: TextField(
               decoration: InputDecoration(
                 labelText: 'Votre Email',
@@ -150,7 +150,7 @@ class _ConnexionFormState extends State<ConnexionForm> {
           ),
           SizedBox(height: 30),
           DelayedAnimation(
-            delay: 4500,
+            delay: 2000,
             child: TextField(
               obscureText: _obscureText,
               decoration: InputDecoration(
