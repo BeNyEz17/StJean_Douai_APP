@@ -9,21 +9,10 @@ import '../components/side_menu.dart';
 class PageAccueil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white.withOpacity(0),
-        leading: IconButton(
-          icon: Icon(
-            Icons.close,
-            color: Colors.black,
-            size: 30,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+    return MaterialApp(
+        title: 'Accueil St Jean Douai',
+        debugShowCheckedModeBanner: false,
+        home: const SideMenu()
     );
   }
 }
