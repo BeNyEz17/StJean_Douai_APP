@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stjean_douai_app/%C3%A9crans/page_entrer.dart';
+import 'package:stjean_douai_app/ecrans/page_entrer.dart';
 
 const d_color = const Color(0xFF03A9F4);
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'St Jean Douai',
       debugShowCheckedModeBanner: false,
-      home: PageAccueil()
+      home: PageEntrer()
       );
   }
 }
