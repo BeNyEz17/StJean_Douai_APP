@@ -7,8 +7,8 @@ import 'connexion.dart';
 
 const d_white = const Color(0xFFEDECF2);
 
-class PageAccueil extends StatelessWidget {
-  const PageAccueil({Key? key}) : super(key: key);
+class PageEntrer extends StatelessWidget {
+  const PageEntrer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stjean_douai_app/components/delayed_animation.dart';
 import 'package:stjean_douai_app/main.dart';
-import 'package:stjean_douai_app/%C3%A9crans/page_accueil.dart';
+import 'package:stjean_douai_app/ecrans/page_accueil.dart';
 
 class PageConnexion extends StatelessWidget {
   @override
