@@ -27,6 +27,18 @@ class _SideMenuState extends State<SideMenu> {
                 name: "Benjamin",
                 option: "developper",
               ),
+              ListTile(
+                leading: SizedBox(
+                  height: 44,
+                  width: 44,
+                    child : Icon(
+                        Icons.home,
+                        color: Colors.white,
+                        size: 30.0,
+                    )
+                ) ,
+                title: Text("Home", style: TextStyle(color: Colors.white),),
+              )
             ],
           )),
         ),

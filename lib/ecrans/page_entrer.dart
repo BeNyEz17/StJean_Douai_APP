@@ -26,7 +26,7 @@ class PageEntrer extends StatelessWidget {
                 child: Container(
                   margin: const EdgeInsets.only(top: 90.0),
                   height: 300,
-                  child: Image.asset('images/logo2.png'),
+                  child: Image.asset('assets/images/logo2.png'),
                 ),
               ),
                 DelayedAnimation(
