@@ -6,6 +6,7 @@ import 'package:stjean_douai_app/main.dart';
 import 'connexion.dart';
 
 const d_white = const Color(0xFFEDECF2);
+const accentCanvasColor = const Color(0xFF3E3E61);
 
 class PageEntrer extends StatelessWidget {
   const PageEntrer({Key? key}) : super(key: key);
@@ -49,7 +50,7 @@ class PageEntrer extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: d_color,
+                        primary: accentCanvasColor,
                         shape: StadiumBorder(),
                         padding: EdgeInsets.all(13)),
                       child: Text('Ouvrir'),

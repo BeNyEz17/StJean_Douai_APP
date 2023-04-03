@@ -29,6 +29,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  sidebarx: ^0.14.0
+  collapsible_sidebar: ^2.0.4
   rive: 0.9.1
   flutter:
     sdk: flutter

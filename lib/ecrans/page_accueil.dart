@@ -12,7 +12,7 @@ class PageAccueil extends StatelessWidget {
     return MaterialApp(
         title: 'Accueil St Jean Douai',
         debugShowCheckedModeBanner: false,
-        home: const SideMenu()
+        home: Sidebar()
     );
   }
 }

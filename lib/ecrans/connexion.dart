@@ -4,6 +4,8 @@ import 'package:stjean_douai_app/components/delayed_animation.dart';
 import 'package:stjean_douai_app/main.dart';
 import 'package:stjean_douai_app/ecrans/page_accueil.dart';
 
+const accentCanvasColor = const Color(0xFF3E3E61);
+
 class PageConnexion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class PageConnexion extends StatelessWidget {
                     child: Text(
                       "Connexion",
                       style: GoogleFonts.poppins(
-                        color: d_color,
+                        color: accentCanvasColor,
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
                       ),
@@ -67,7 +69,7 @@ class PageConnexion extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: StadiumBorder(),
-                  primary: d_color,
+                  primary: accentCanvasColor,
                   padding: EdgeInsets.symmetric(
                     horizontal: 125,
                     vertical: 13,
@@ -110,7 +112,7 @@ class PageConnexion extends StatelessWidget {
                     child: Text(
                       "PASSER",
                       style: GoogleFonts.poppins(
-                        color: Colors.black,
+                        color: accentCanvasColor,
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
