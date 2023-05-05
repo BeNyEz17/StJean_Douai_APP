@@ -3,6 +3,7 @@ import 'package:stjean_douai_app/ecrans/page_entrer.dart';
 
 const d_color = const Color(0xFF03A9F4);
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
+
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'St Jean Douai',
@@ -19,5 +21,7 @@ class MyApp extends StatelessWidget {
       home: PageEntrer()
       );
   }
+
 }
+
 

@@ -1,274 +1,108 @@
 import 'package:flutter/material.dart';
-import 'package:sidebarx/sidebarx.dart';
+import 'package:stjean_douai_app/ecrans/page_profil.dart';
+import 'drawer_items.dart';
+import 'package:stjean_douai_app/ecrans/page_paramatres.dart';
+import 'package:stjean_douai_app/ecrans/page_applications.dart';
+import 'package:stjean_douai_app/ecrans/page_lieux.dart';
+import 'package:stjean_douai_app/ecrans/page_contact.dart';
 
 void main() {
   runApp(Sidebar());
 }
+const accentCanvasColor = const Color(0xFF3E3E61);
 
 class Sidebar extends StatelessWidget {
-  Sidebar({Key? key}) : super(key: key);
+  const Sidebar ({super.key});
 
-  final _controller = SidebarXController(selectedIndex: 0, extended: true);
-  final _key = GlobalKey<ScaffoldState>();
+  static const appTitle = 'Accueil';
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Sidebar',
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: primaryColor,
-        canvasColor: canvasColor,
-        scaffoldBackgroundColor: scaffoldBackgroundColor,
-        textTheme: const TextTheme(
-          headlineSmall: TextStyle(
-            color: Colors.white,
-            fontSize: 46,
-            fontWeight: FontWeight.w800,
-          ),
-        ),
-      ),
-      home: Builder(
-        builder: (context) {
-          final isSmallScreen = MediaQuery.of(context).size.width < 600;
-          return Scaffold(
-            key: _key,
-            appBar: isSmallScreen
-                ? AppBar(
-              backgroundColor: canvasColor,
-              title: Text(_getTitleByIndex(_controller.selectedIndex)),
-              leading: IconButton(
-                onPressed: () {
-                  // if (!Platform.isAndroid && !Platform.isIOS) {
-                  //   _controller.setExtended(true);
-                  // }
-                  _key.currentState?.openDrawer();
-                },
-                icon: const Icon(Icons.menu),
-              ),
-            )
-                : null,
-            drawer: ExampleSidebarX(controller: _controller),
-            body: Row(
-              children: [
-                if (!isSmallScreen) ExampleSidebarX(controller: _controller),
-                Expanded(
-                  child: Center(
-                    child: ScreenInformation(
-                      controller: _controller,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          );
-        },
-      ),
+      title: appTitle,
+      home: MyHomePage(title: appTitle),
     );
   }
 }
 
-class ExampleSidebarX extends StatelessWidget {
-  const ExampleSidebarX({
-    Key? key,
-    required SidebarXController controller,
-  })  : _controller = controller,
-        super(key: key);
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key, required this.title});
 
-  final SidebarXController _controller;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
-    return SidebarX(
-      controller: _controller,
-      theme: SidebarXTheme(
-        margin: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: canvasColor,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        hoverColor: scaffoldBackgroundColor,
-        textStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
-        selectedTextStyle: const TextStyle(color: Colors.white),
-        itemTextPadding: const EdgeInsets.only(left: 30),
-        selectedItemTextPadding: const EdgeInsets.only(left: 30),
-        itemDecoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: canvasColor),
-        ),
-        selectedItemDecoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: actionColor.withOpacity(0.37),
-          ),
-          gradient: const LinearGradient(
-            colors: [accentCanvasColor, canvasColor],
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.28),
-              blurRadius: 30,
-            )
+    return Scaffold(
+      appBar: AppBar(title: Text(title), backgroundColor: accentCanvasColor,),
+      body: const Center(
+        child: Text('Accueil Ok'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: accentCanvasColor,
+              ),
+              child: Image.asset('assets/images/Logo.png'),
+            ),
+            DrawerItem(
+              title: 'Accueil',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            DrawerItem(
+              title: 'Applications',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PageApplications()),
+                );
+              },
+            ),
+            DrawerItem(
+              title: 'Lieux',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PagesLieux()),
+                );
+              },
+            ),
+            DrawerItem(
+              title: 'Contact',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PageContact()),
+                );
+              },
+            ),
+            DrawerItem(
+              title: 'Profil',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PageProfil()),
+                );
+              },
+            ),
+            const ListTileDivider(),
+            DrawerItem(
+              title: 'Parametres',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PageParametres()),
+                );
+              },
+            ),
           ],
         ),
-        iconTheme: IconThemeData(
-          color: Colors.white.withOpacity(0.7),
-          size: 20,
-        ),
-        selectedIconTheme: const IconThemeData(
-          color: Colors.white,
-          size: 20,
-        ),
       ),
-      extendedTheme: const SidebarXTheme(
-        width: 200,
-        decoration: BoxDecoration(
-          color: canvasColor,
-        ),
-      ),
-      footerDivider: divider,
-      headerBuilder: (context, extended) {
-        return SizedBox(
-          height: 100,
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Image.asset('assets/images/Logo.png'),
-          ),
-        );
-      },
-      items: [
-        SidebarXItem(
-          icon: Icons.info_outline_rounded,
-          label: 'Informations',
-          onTap: () {
-            debugPrint('Informations');
-          },
-        ),
-       SidebarXItem(
-          icon: Icons.account_tree_outlined,
-          label: 'Applications',
-         onTap: () {
-           debugPrint('Applications');
-         },
-        ),
-        const SidebarXItem(
-          icon: Icons.map,
-          label: 'Lieux',
-          //onTap: () {
-            //debugPrint('Lieux');
-          //},
-        ),
-        const SidebarXItem(
-          icon: Icons.contact_phone_outlined,
-          label: 'Contact',
-        ),
-        const SidebarXItem(
-          icon: Icons.account_circle,
-          label: 'Profil',
-        ),
-        const SidebarXItem(
-          icon: Icons.settings,
-          label: 'Parametre',
-        ),
-      ],
     );
   }
 }
-
-class ScreenInformation extends StatelessWidget {
-  const ScreenInformation({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
-
-  final SidebarXController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return AnimatedBuilder(
-      animation: controller,
-      builder: (context, child) {
-        final pageTitle = _getTitleByIndex(controller.selectedIndex);
-        switch (controller.selectedIndex) {
-          case 0:
-            return ListView.builder(
-              padding: const EdgeInsets.only(top: 10),
-              itemBuilder: (context, index) => Container(
-                height: 100,
-                width: double.infinity,
-                margin: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Theme.of(context).canvasColor,
-                  boxShadow: const [BoxShadow()],
-                ),
-              ),
-            );
-          default:
-            return Text(
-              pageTitle,
-              style: theme.textTheme.headlineSmall,
-            );
-        }
-      },
-    );
-  }
-}
-
-class ScreenApplications extends StatelessWidget {
-  const ScreenApplications({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
-
-  final SidebarXController controller;
-@override
-Widget build(BuildContext context) {
-  final theme = Theme.of(context);
-  return AnimatedBuilder(
-    animation: controller,
-    builder: (context, child) {
-      final pageTitle = _getTitleByIndex(controller.selectedIndex);
-      switch (controller.selectedIndex) {
-        case 1:
-          return Scaffold(
-
-          );
-        default:
-          return Text(
-            pageTitle,
-            style: theme.textTheme.headlineSmall,
-          );
-      }
-    },
-  );
-}
-}
-
-String _getTitleByIndex(int index) {
-  switch (index) {
-    case 0:
-      return 'Informations';
-    case 1:
-      return 'Applications';
-    case 2:
-      return 'Lieux';
-    case 3:
-      return 'Contact';
-    case 4:
-      return 'Profil';
-    case 5:
-      return 'Parametre';
-    default:
-      return 'Not found page';
-  }
-}
-
-const primaryColor = Color(0xFF685BFF);
-const canvasColor = Color(0xFF2E2E48);
-const scaffoldBackgroundColor = Color(0xFF464667);
-const accentCanvasColor = Color(0xFF3E3E61);
-const white = Colors.white;
-final actionColor = const Color(0xFF5F5FA7).withOpacity(0.6);
-final divider = Divider(color: white.withOpacity(0.3), height: 1);
