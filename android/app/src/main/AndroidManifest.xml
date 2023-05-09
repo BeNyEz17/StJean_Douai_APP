@@ -1,15 +1,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.stjean_douai_app">
 
     <!-- Ajoutez la permission pour accéder à la messagerie -->
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:label="stjean_douai_app"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/launcher_icon"
+        tools:overrideLibrary="io.flutter.plugins.googlemaps"> <!-- Ajout de l'attribut tools:overrideLibrary -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -36,5 +40,6 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
     </application>
 </manifest>

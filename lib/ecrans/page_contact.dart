@@ -62,8 +62,13 @@ class PageContact extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Image.asset(
+                'assets/images/logo2.png',
+                width: 200.0,
+                height: 200.0,
+              ),
+              SizedBox(height: 16.0),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(

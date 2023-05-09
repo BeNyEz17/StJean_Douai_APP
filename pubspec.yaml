@@ -31,6 +31,8 @@ environment:
 dependencies:
   url_launcher: ^6.0.3
   collapsible_sidebar: ^2.0.4
+  flutter_map: ^4.0.0
+  latlong: ^0.6.1
   rive: 0.9.1
   flutter:
     sdk: flutter
