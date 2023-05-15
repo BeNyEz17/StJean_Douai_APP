@@ -35,39 +35,83 @@ class PagesLieux extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(pageTitle),
         backgroundColor: accentCanvasColor,
-      ),
-      body: Container(
-        width: MediaQuery.of(context).size.width * 1,
-        height: MediaQuery.of(context).size.height * 0.77,
-        child: FlutterMap(
-          options: MapOptions(
-            center: LatLng(50.369465744099635, 3.0860044668324575),
-            zoom: 18,
-          ),
+        title: Row(
           children: [
-            TileLayer(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-              userAgentPackageName: 'com.example.app',
+            Icon(
+              Icons.map,
+              color: Colors.white,
             ),
-          ],
-          nonRotatedChildren: [
-            RichAttributionWidget(
-              attributions: [
-                TextSourceAttribution(
-                  'OpenStreetMap contributors',
-                  onTap: () => launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text(
+                pageTitle,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0,
                 ),
-              ],
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _openGoogleMaps(context),
-        child: Icon(Icons.map),
-        backgroundColor: accentCanvasColor,
+      body: Column(
+        children: [
+          SizedBox(
+            height: 16.0,
+          ),
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 16.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.grey,
+                  width: 2.0,
+                ),
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12.0),
+                child: FlutterMap(
+                  options: MapOptions(
+                    center: LatLng(50.369465744099635, 3.0860044668324575),
+                    zoom: 17.50,
+                  ),
+                  children: [
+                    TileLayer(
+                      urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                      userAgentPackageName: 'com.example.app',
+                    ),
+                  ],
+                  nonRotatedChildren: [
+                    RichAttributionWidget(
+                      attributions: [
+                        TextSourceAttribution(
+                          'OpenStreetMap contributors',
+                          onTap: () => launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 16.0,
+          ),
+        ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        margin: EdgeInsets.only(bottom: 16.0),
+        child: FloatingActionButton.extended(
+          onPressed: () => _openGoogleMaps(context),
+          label: Text('Ouvrir dans Google Maps'),
+          icon: Icon(Icons.map),
+          backgroundColor: accentCanvasColor,
+        ),
       ),
     );
   }
