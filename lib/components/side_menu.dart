@@ -5,20 +5,22 @@ import 'package:stjean_douai_app/ecrans/page_paramatres.dart';
 import 'package:stjean_douai_app/ecrans/page_applications.dart';
 import 'package:stjean_douai_app/ecrans/page_lieux.dart';
 import 'package:stjean_douai_app/ecrans/page_contact.dart';
+import 'package:stjean_douai_app/ecrans/page_accueil.dart';
 
 void main() {
   runApp(Sidebar());
 }
+
 const accentCanvasColor = const Color(0xFF3E3E61);
 
 class Sidebar extends StatelessWidget {
-  const Sidebar ({super.key});
+  const Sidebar({Key? key});
 
   static const appTitle = 'Accueil';
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: appTitle,
       home: MyHomePage(title: appTitle),
@@ -27,17 +29,15 @@ class Sidebar extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title), backgroundColor: accentCanvasColor,),
-      body: const Center(
-        child: Text('Accueil Ok'),
-      ),
+      appBar: AppBar(title: Text(title), backgroundColor: accentCanvasColor),
+      body: PageAccueil(), // Utilisez PageAccueil() comme contenu de la page d'accueil
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -51,7 +51,10 @@ class MyHomePage extends StatelessWidget {
             DrawerItem(
               title: 'Accueil',
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => PageAccueil()),
+                );
               },
             ),
             DrawerItem(
