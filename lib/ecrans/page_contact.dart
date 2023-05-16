@@ -48,7 +48,13 @@ class PageContact extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(pageTitle),
+        title: Row(
+          children: [
+            Icon(Icons.contact_phone),
+            SizedBox(width: 8.0),
+            Text(pageTitle),
+          ],
+        ),
         backgroundColor: accentCanvasColor,
       ),
       body: Container(
