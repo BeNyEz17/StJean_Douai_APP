@@ -9,7 +9,9 @@ class PageApplications extends StatelessWidget {
 
   static const pageTitle = 'Applications';
 
+  // Méthode pour ouvrir l'application EcoleDirecte
   void _openEcoleDirecte(BuildContext context) async {
+    // URL de l'application EcoleDirecte
     final urlScheme = 'ecoledirecte://';
     final playStoreUrl = 'https://play.google.com/store/apps/details?id=com.ecoledirecte.edmobile';
 
@@ -68,8 +70,9 @@ class PageApplications extends StatelessWidget {
     }
   }
 
-
+  // Méthode pour ouvrir l'application MyTurboself
   void _openTurboself(BuildContext context) async {
+    // URL de l'application MyTurboself
     final urlScheme = 'tuboself://';
     final playStoreUrl = 'https://play.google.com/store/apps/details?id=com.turboself.myturboself';
 
@@ -128,7 +131,9 @@ class PageApplications extends StatelessWidget {
     }
   }
 
+  // Méthode pour ouvrir l'application Office365
   void _openOffice365(BuildContext context) async {
+    // URL de l'application Office365
     final urlScheme = 'office365://';
     final playStoreUrl =
         'https://play.google.com/store/apps/details?id=com.microsoft.office.officehubrow';
@@ -191,156 +196,158 @@ class PageApplications extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         title: Row(
-        children: [
-        Icon(Icons.apps),
-    SizedBox(width: 8.0),
-    Text(pageTitle),
-    ],
-    ),
-    backgroundColor: accentCanvasColor,
-    ),
-    body: Container(
-    width: double.infinity,
-    decoration: BoxDecoration(
-    gradient: LinearGradient(
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    colors: [
-    accentCanvasColor,
-    Colors.white
-      ,
-    ],
-    ),
-    ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            alignment: Alignment.topCenter,
-            margin: EdgeInsets.only(top: 50.0),
-            padding: EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  blurRadius: 6.0,
-                  offset: Offset(0, 3),
-                ),
-              ],
-            ),
-            child: Text(
-              'Voici vos applications',
-              style: TextStyle(
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-                shadows: [
-                  Shadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 2.0,
-                    offset: Offset(0, 2),
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          Expanded(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () => _openEcoleDirecte(context),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      onPrimary: accentCanvasColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24.0),
-                      ),
-                      padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 12.0),
-                    ),
-                    child: ListTile(
-                      leading: Image.asset(
-                        'assets/images/ecoledirecte_logo.png',
-                        width: 30,
-                        height: 30,
-                      ),
-                      title: Text(
-                        'Mon EcoleDirecte',
-                        style: TextStyle(
-                          fontSize: 19.0,
-                          fontWeight: FontWeight.bold,
-                          color: accentCanvasColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 16.0),
-                  ElevatedButton(
-                    onPressed: () => _openTurboself(context),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      onPrimary: accentCanvasColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24.0),
-                      ),
-                      padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 12.0),
-                    ),
-                    child: ListTile(
-                      leading: Image.asset(
-                        'assets/images/turboself_logo.png',
-                        width: 30,
-                        height: 30,
-                      ),
-                      title: Text(
-                        'MyTurboself',
-                        style: TextStyle(
-                          fontSize: 19.0,
-                          fontWeight: FontWeight.bold,
-                          color: accentCanvasColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 16.0),
-                  ElevatedButton(
-                    onPressed: () => _openOffice365(context),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      onPrimary: accentCanvasColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24.0),
-                      ),
-                      padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 12.0),
-                    ),
-                    child: ListTile(
-                      leading: Image.asset(
-                        'assets/images/office365_logo.png',
-                        width: 30,
-                        height: 30,
-                      ),
-                      title: Text(
-                        'Microsoft 365 (Office)',
-                        style: TextStyle(
-                          fontSize: 19.0,
-                          fontWeight: FontWeight.bold,
-                          color: accentCanvasColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+          children: [
+            Icon(Icons.apps),
+            SizedBox(width: 8.0),
+            Text(pageTitle),
+          ],
+        ),
+        backgroundColor: accentCanvasColor,
+        centerTitle: true,
       ),
-    ),
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              accentCanvasColor,
+              Colors.white,
+            ],
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              alignment: Alignment.topCenter,
+              margin: EdgeInsets.only(top: 70.0),
+              padding: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 6.0,
+                    offset: Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Text(
+                'Voici vos applications',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  shadows: [
+                    Shadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 2.0,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => _openEcoleDirecte(context),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: accentCanvasColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 32.0, vertical: 12.0),
+                      ),
+                      child: ListTile(
+                        leading: Image.asset(
+                          'assets/images/ecoledirecte_logo.png',
+                          width: 30,
+                          height: 30,
+                        ),
+                        title: Text(
+                          'Mon EcoleDirecte',
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            color: accentCanvasColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 16.0),
+                    ElevatedButton(
+                      onPressed: () => _openTurboself(context),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: accentCanvasColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 32.0, vertical: 12.0),
+                      ),
+                      child: ListTile(
+                        leading: Image.asset(
+                          'assets/images/turboself_logo.png',
+                          width: 30,
+                          height: 30,
+                        ),
+                        title: Text(
+                          'MyTurboself',
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            color: accentCanvasColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 16.0),
+                    ElevatedButton(
+                      onPressed: () => _openOffice365(context),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: accentCanvasColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 32.0, vertical: 12.0),
+                      ),
+                      child: ListTile(
+                        leading: Image.asset(
+                          'assets/images/office365_logo.png',
+                          width: 30,
+                          height: 30,
+                        ),
+                        title: Text(
+                          'Microsoft 365 (Office)',
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            color: accentCanvasColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

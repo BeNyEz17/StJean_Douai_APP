@@ -6,6 +6,7 @@ import 'package:stjean_douai_app/ecrans/page_applications.dart';
 import 'package:stjean_douai_app/ecrans/page_lieux.dart';
 import 'package:stjean_douai_app/ecrans/page_contact.dart';
 import 'package:stjean_douai_app/ecrans/page_accueil.dart';
+import 'package:stjean_douai_app/ecrans/page_reseaux.dart';
 
 void main() {
   runApp(Sidebar());
@@ -36,7 +37,16 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title), backgroundColor: accentCanvasColor),
+      appBar: AppBar(
+        title: Row(
+          children: [
+            Icon(Icons.home), // Ajout de l'icône de maison à côté du titre
+            SizedBox(width: 8), // Espacement entre l'icône et le texte
+            Text(title),
+          ],
+        ),
+        backgroundColor: accentCanvasColor,
+      ),
       body: PageAccueil(), // Utilisez PageAccueil() comme contenu de la page d'accueil
       drawer: Drawer(
         child: ListView(
@@ -46,10 +56,15 @@ class MyHomePage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: accentCanvasColor,
               ),
-              child: Image.asset('assets/images/Logo.png'),
+              child: Column(
+                children: [
+                  Image.asset('assets/images/Logo.png', width: 130, height: 130), // Ajout du logo dans le DrawerHeader avec des dimensions spécifiées
+                ],
+              ),
             ),
-            DrawerItem(
-              title: 'Applications',
+            ListTile(
+              leading: Icon(Icons.apps, color: accentCanvasColor), // Ajout d'une icône d'application à côté du texte avec la couleur spécifiée
+              title: Text('Applications'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -57,8 +72,9 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            DrawerItem(
-              title: 'Lieux',
+            ListTile(
+              leading: Icon(Icons.location_on, color: accentCanvasColor), // Ajout d'une icône de lieu à côté du texte avec la couleur spécifiée
+              title: Text('Lieux'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -66,8 +82,9 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            DrawerItem(
-              title: 'Contact',
+            ListTile(
+              leading: Icon(Icons.contact_mail, color: accentCanvasColor), // Ajout d'une icône de contact à côté du texte avec la couleur spécifiée
+              title: Text('Contact'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -75,8 +92,19 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            DrawerItem(
-              title: 'Profil',
+            ListTile(
+              leading: Icon(Icons.share, color: accentCanvasColor), // Ajout d'une icône de contact à côté du texte avec la couleur spécifiée
+              title: Text('Réseaux sociaux'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PageReseaux()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.person, color: accentCanvasColor), // Ajout d'une icône de profil à côté du texte avec la couleur spécifiée
+              title: Text('Profil'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -84,9 +112,10 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            const ListTileDivider(),
-            DrawerItem(
-              title: 'Parametres',
+            const Divider(),
+            ListTile(
+              leading: Icon(Icons.settings, color: accentCanvasColor), // Ajout d'une icône de paramètres à côté du texte avec la couleur spécifiée
+              title: Text('Parametres'),
               onTap: () {
                 Navigator.push(
                   context,
