@@ -49,15 +49,6 @@ class MyHomePage extends StatelessWidget {
               child: Image.asset('assets/images/Logo.png'),
             ),
             DrawerItem(
-              title: 'Accueil',
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => PageAccueil()),
-                );
-              },
-            ),
-            DrawerItem(
               title: 'Applications',
               onTap: () {
                 Navigator.push(

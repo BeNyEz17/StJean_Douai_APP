@@ -87,7 +87,7 @@ class PageConnexion extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => PageAccueil(),
+                      builder: (context) => MyHomePage(title: 'Accueil',),
                     ),
                   );
                 },
@@ -103,7 +103,7 @@ class PageConnexion extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PageAccueil(),
+                        builder: (context) => MyHomePage(title: 'Accueil',),
                       ),
                     );
                   },
