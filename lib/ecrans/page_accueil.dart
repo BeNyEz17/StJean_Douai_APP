@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../components/side_menu.dart';
-
 class PageAccueil extends StatefulWidget {
   @override
   _PageAccueilState createState() => _PageAccueilState();
