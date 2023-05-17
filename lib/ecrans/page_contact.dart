@@ -9,10 +9,10 @@ class PageContact extends StatelessWidget {
   static const pageTitle = 'Contact';
 
   // Contact email address
-  static const contactEmail = 'contact@example.com';
+  static const contactEmail = 'contact@stjean-douai.eu';
 
   // Contact phone number
-  static const contactPhoneNumber = '+1 555-555-5555';
+  static const contactPhoneNumber = '0327944660';
 
   // Launch email app with pre-filled email
   _launchEmail() async {
