@@ -73,11 +73,11 @@ class PageApplications extends StatelessWidget {
   // Méthode pour ouvrir l'application MyTurboself
   void _openTurboself(BuildContext context) async {
     // URL de l'application MyTurboself
-    final urlScheme = 'tuboself://';
+    final urlScheme = 'MyTurboself://';
     final playStoreUrl = 'https://play.google.com/store/apps/details?id=com.turboself.myturboself';
 
-    if (await canLaunch(urlScheme)) {
-      await launch(urlScheme);
+    if (await canLaunchUrl(urlScheme as Uri)) {
+      await launchUrl(urlScheme as Uri);
     } else {
       showDialog(
         context: context,
@@ -138,8 +138,8 @@ class PageApplications extends StatelessWidget {
     final playStoreUrl =
         'https://play.google.com/store/apps/details?id=com.microsoft.office.officehubrow';
 
-    if (await canLaunch(urlScheme)) {
-      await launch(urlScheme);
+    if (await canLaunchUrl(urlScheme as Uri)) {
+      await launchUrl(urlScheme as Uri);
     } else {
       showDialog(
         context: context,
