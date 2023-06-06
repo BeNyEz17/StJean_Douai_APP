@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/services.dart';
 
 const accentCanvasColor = const Color(0xFF3E3E61);
 
@@ -15,7 +16,7 @@ class PageContact extends StatelessWidget {
   static const contactPhoneNumber = '0327944660';
 
   // Launch email app with pre-filled email
-  _launchEmail() async {
+  _launchEmail(BuildContext context) async {
     final Uri params = Uri(
       scheme: 'mailto',
       path: contactEmail,
@@ -25,12 +26,89 @@ class PageContact extends StatelessWidget {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      throw 'Could not launch $url';
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            title: Text(
+              'Ouverture de la boîte mail impossible',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Adresse e-mail :',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.0),
+                Text(
+                  contactEmail,
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ],
+            ),
+            actions: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Clipboard.setData(ClipboardData(text: contactEmail));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Adresse e-mail copiée',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                      Navigator.of(context).pop();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.green,
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.copy, size: 18.0),
+                        SizedBox(width: 8.0),
+                        Text('Copier'),
+                      ],
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red,
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
+                    ),
+                    child: Text('Fermer'),
+                  ),
+                ],
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 
   // Launch phone app with pre-filled phone number
-  _launchPhone() async {
+  _launchPhone(BuildContext context) async {
     final Uri params = Uri(
       scheme: 'tel',
       path: contactPhoneNumber,
@@ -40,7 +118,84 @@ class PageContact extends StatelessWidget {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      throw 'Could not launch $url';
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            title: Text(
+              'Appel impossible',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Numéro de téléphone :',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.0),
+                Text(
+                  contactPhoneNumber,
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ],
+            ),
+            actions: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Clipboard.setData(ClipboardData(text: contactPhoneNumber));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Numéro de téléphone copié',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                      Navigator.of(context).pop();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.green,
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.copy, size: 18.0),
+                        SizedBox(width: 8.0),
+                        Text('Copier'),
+                      ],
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red,
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
+                    ),
+                    child: Text('Fermer'),
+                  ),
+                ],
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 
@@ -75,10 +230,19 @@ class PageContact extends StatelessWidget {
                 height: 200.0,
               ),
               SizedBox(height: 16.0),
+              Text(
+                'Contact nous',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                  color: accentCanvasColor,
+                ),
+              ),
+              SizedBox(height: 16.0),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: _launchEmail,
+                  onPressed: () => _launchEmail(context),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white,
                     onPrimary: accentCanvasColor,
@@ -91,8 +255,8 @@ class PageContact extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.mail_outline),
-                        SizedBox(width: 16.0),
+                        Icon(Icons.mail_outline, size: 18.0),
+                        SizedBox(width: 8.0),
                         Text(
                           'Envoyer un email',
                           style: TextStyle(fontSize: 18.0),
@@ -106,7 +270,7 @@ class PageContact extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: _launchPhone,
+                  onPressed: () => _launchPhone(context),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white,
                     onPrimary: accentCanvasColor,
@@ -119,8 +283,8 @@ class PageContact extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.phone),
-                        SizedBox(width: 16.0),
+                        Icon(Icons.phone, size: 18.0),
+                        SizedBox(width: 8.0),
                         Text(
                           'Appeler',
                           style: TextStyle(fontSize: 18.0),

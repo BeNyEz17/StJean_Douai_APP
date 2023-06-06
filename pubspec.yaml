@@ -30,6 +30,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   url_launcher: ^6.0.3
+  android_intent_plus: ^4.0.1
   collapsible_sidebar: ^2.0.4
   flutter_map: ^4.0.0
   http: ^0.13.4
