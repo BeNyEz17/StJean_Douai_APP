@@ -31,7 +31,7 @@ class PageApplications extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'Erreur',
+                  'Introuvable',
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
@@ -76,8 +76,8 @@ class PageApplications extends StatelessWidget {
     final urlScheme = 'MyTurboself://';
     final playStoreUrl = 'https://play.google.com/store/apps/details?id=com.turboself.myturboself';
 
-    if (await canLaunchUrl(urlScheme as Uri)) {
-      await launchUrl(urlScheme as Uri);
+    if (await canLaunch(urlScheme)) {
+      await launch(urlScheme);
     } else {
       showDialog(
         context: context,
@@ -92,7 +92,7 @@ class PageApplications extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'Erreur',
+                  'Introuvable',
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
@@ -138,8 +138,8 @@ class PageApplications extends StatelessWidget {
     final playStoreUrl =
         'https://play.google.com/store/apps/details?id=com.microsoft.office.officehubrow';
 
-    if (await canLaunchUrl(urlScheme as Uri)) {
-      await launchUrl(urlScheme as Uri);
+    if (await canLaunch(urlScheme)) {
+      await launch(urlScheme);
     } else {
       showDialog(
         context: context,
@@ -154,7 +154,7 @@ class PageApplications extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'Erreur',
+                  'Introuvable',
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
