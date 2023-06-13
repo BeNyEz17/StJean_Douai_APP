@@ -238,7 +238,7 @@ class PageApplications extends StatelessWidget {
                 ],
               ),
               child: Text(
-                'Voici vos applications',
+                'Mes Applications',
                 style: TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
