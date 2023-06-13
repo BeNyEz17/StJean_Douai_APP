@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:stjean_douai_app/ecrans/page_profil.dart';
-import 'drawer_items.dart';
-import 'package:stjean_douai_app/ecrans/page_paramatres.dart';
-import 'package:stjean_douai_app/ecrans/page_applications.dart';
-import 'package:stjean_douai_app/ecrans/page_lieux.dart';
-import 'package:stjean_douai_app/ecrans/page_contact.dart';
-import 'package:stjean_douai_app/ecrans/page_accueil.dart';
-import 'package:stjean_douai_app/ecrans/page_reseaux.dart';
+import 'package:stjean_douai_app/View/Profil_view.dart';
+import 'package:stjean_douai_app/View/Parametre_view.dart';
+import 'package:stjean_douai_app/View/Applications_view.dart';
+import 'package:stjean_douai_app/View/Map_view.dart';
+import 'package:stjean_douai_app/View/Contact_view.dart';
+import 'package:stjean_douai_app/View/Accueil_view.dart';
+import 'package:stjean_douai_app/View/Reseaux_sociaux_view.dart';
 
 void main() {
   runApp(Sidebar());

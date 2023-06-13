@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stjean_douai_app/ecrans/page_entrer.dart';
+import 'package:stjean_douai_app/View/Entrer_view.dart';
 
 const d_color = const Color(0xFF03A9F4);
 

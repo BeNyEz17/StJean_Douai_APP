@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stjean_douai_app/components/delayed_animation.dart';
+import 'package:stjean_douai_app/components/Delay_animation.dart';
 
-import 'connexion.dart';
+import 'Connexion_view.dart';
 
 const d_white = const Color(0xFFEDECF2);
 const accentCanvasColor = const Color(0xFF3E3E61);

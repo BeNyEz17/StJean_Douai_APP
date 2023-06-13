@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stjean_douai_app/components/delayed_animation.dart';
-import 'package:stjean_douai_app/components/side_menu.dart';
+import 'package:stjean_douai_app/components/Delay_animation.dart';
+import 'package:stjean_douai_app/components/Side_menu.dart';
 
 const accentCanvasColor = const Color(0xFF3E3E61);
 
