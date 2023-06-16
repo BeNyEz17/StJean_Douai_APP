@@ -34,7 +34,7 @@ class PageEntrer extends StatelessWidget {
                   child: Container(
                     height: 50,
                     margin: EdgeInsets.only(),
-                    child: Text("Pour en savoir plus sur ST Jean clique sur le bouton",
+                    child: Text("Pour en savoir plus sur Saint Jean clique sur le bouton",
                         textAlign: TextAlign.center,
                         style: GoogleFonts.poppins(
                           color: Colors.grey,
